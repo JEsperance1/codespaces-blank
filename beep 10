@@ -1,0 +1,336 @@
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+  struct DogInfo 
+  {   
+  
+      char* dogName;
+      float odds;
+      int payout;
+      
+  };
+
+int main() {
+    
+    
+     struct DogInfo Dogs[9];
+     
+     
+ 
+ 
+ Dogs[0].dogName = "Fido";
+ Dogs[0].odds = .40;
+ Dogs[0].payout = 2;
+ Dogs[1].dogName = "Buster";
+ Dogs[1].odds = .10;
+ Dogs[1].payout = 5;
+ Dogs[2].dogName = "Maximus";
+ Dogs[2].odds = .08;
+ Dogs[2].payout = 10;
+ Dogs[3].dogName = "Spot";
+ Dogs[3].odds = .06;
+ Dogs[3].payout = 15;
+ Dogs[4].dogName = "Cupid";
+ Dogs[4].odds = .01;
+ Dogs[4].payout = 50;
+ Dogs[5].dogName = "Luna";
+ Dogs[5].odds = .04;
+ Dogs[5].payout = 20;
+ Dogs[6].dogName = "Daisy";
+ Dogs[6].odds = .08;
+ Dogs[6].payout = 10;   
+ Dogs[7].dogName = "Bella";
+ Dogs[7].odds = .10;
+ Dogs[7].payout = 5;   
+ Dogs[8].dogName = "Perrito";
+ Dogs[8].odds = .13;
+ Dogs[8].payout = 3;       
+    
+    
+    char y;
+    char x = 'x';
+    char q;
+    int random_number;
+    int raceCounter = 0;
+    float gregWallet = 500.00;
+    float gregAccount = 500.00;
+    float winnings = 0;
+    float prize = 0;
+    float wager = 0;
+    char bankChoice;
+    int winners[1024];
+    float bankAmount = 0;
+    
+    printf("* * * * * * * * * * * * * * * * * * * * * * * *\n");
+    printf("*                                             *\n");
+    printf("*               GAMBLIN' GREG!!!              *\n");
+    printf("*                                             *\n");
+    printf("* * * * * * * * * * * * * * * * * * * * * * * *\n");
+    printf("\n\n");
+
+    printf("Press [x] to play.\n");
+    scanf("%c", &y);
+    
+    
+    int endVal = 1;
+    
+    while (1 == endVal)
+    {
+    
+    if (x == y){
+        
+        
+      
+    printf("* * * * * * * * * * * * * * * * * * * * * * * *\n");
+    printf("*     [g]AMBLE        * *      [b]ANKING      *\n");
+    printf("* * * * * * * * * * * * * * * * * * * * * * * *\n");
+    printf("*     [r]ESULTS       * *      [l]EAVE        *\n");
+    printf("* * * * * * * * * * * * * * * * * * * * * * * *\n");
+    printf("\n");
+        
+    printf("Select an option.\n");  
+    
+    scanf(" %c", &q);
+    printf("\n");
+    
+    system("clear");
+    
+        
+        switch(q) {
+      case 'g' :
+      
+      if (0 < gregWallet){
+         printf("\n");
+         printf("Gambling Time!  Choose your pup!\n");
+         printf("\n");
+         printf("%s    [0]\n", Dogs[0].dogName);
+         printf("%s  [1]\n", Dogs[1].dogName);
+         printf("%s [2]\n", Dogs[2].dogName);
+         printf("%s    [3]\n", Dogs[3].dogName);
+         printf("%s   [4]\n", Dogs[4].dogName);
+         printf("%s    [5]\n", Dogs[5].dogName);
+         printf("%s   [6]\n", Dogs[6].dogName);
+         printf("%s   [7]\n", Dogs[7].dogName);
+         printf("%s [8]\n", Dogs[8].dogName);
+         printf("\n");
+         printf("\n");
+         
+        int dogChoice;
+         
+         
+         scanf("%d", &dogChoice);
+         printf("\n");
+         
+         if (dogChoice >= 0 && dogChoice <= 8){
+         printf("You chose: %s!!\n", Dogs[dogChoice].dogName);
+         printf("How much do you want to wager?\n\n");
+         scanf("%f", &wager);
+      
+         if (gregWallet >= wager)
+      {
+         gregWallet  = gregWallet - wager;
+       
+         printf("\n");
+         printf("Lets see how you did.\n");
+         }
+         else
+        { printf("Invalid Selection\n\n");
+          
+          continue;
+        }
+         }
+         
+         else 
+         {printf("You've gotta pay to play buddy.");}
+        
+         srand(time(NULL));
+         random_number = (rand() % 100) + 1;
+         
+         
+         
+         
+         
+         
+       if (random_number >= 1 && random_number <= 40) {
+          printf("%s won!!\n", Dogs[0].dogName);
+          winners[raceCounter] = 0;
+          if (dogChoice == 0) {
+    prize = Dogs[0].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 41 && random_number <= 50) {
+          printf("%s won!!\n", Dogs[1].dogName);
+          winners[raceCounter] = 1;
+          if (dogChoice == 1) {
+    prize = Dogs[1].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 51 && random_number <= 58) {
+          printf("%s won!!\n", Dogs[2].dogName);
+          winners[raceCounter] = 2;
+          if (dogChoice == 2) {
+    prize = Dogs[2].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 59 && random_number <= 64) {
+          printf("%s won!!\n", Dogs[3].dogName);
+          winners[raceCounter] = 3;
+          if (dogChoice == 3) {
+    prize = Dogs[3].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number == 65) {
+          printf("%s won!!\n", Dogs[4].dogName);
+          winners[raceCounter] = 4;
+          if (dogChoice == 4) {
+    prize = Dogs[4].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 66 && random_number <= 69) {
+          printf("%s won!!\n", Dogs[5].dogName);
+          winners[raceCounter] = 5;
+          if (dogChoice == 5) {
+    prize = Dogs[5].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 70 && random_number <= 77) {
+          printf("%s won!!\n", Dogs[6].dogName);
+          winners[raceCounter] = 6;
+          if (dogChoice == 6) {
+    prize = Dogs[6].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 78 && random_number <= 87) {
+          printf("%s won!!\n", Dogs[7].dogName);
+          winners[raceCounter] = 7;
+          if (dogChoice == 7) {
+    prize = Dogs[7].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else if (random_number >= 88 && random_number <= 100) {
+  printf("%s won!!\n", Dogs[8].dogName);
+  winners[raceCounter] = 8;
+  if (dogChoice == 8) {
+    prize = Dogs[8].payout * wager + wager;
+  } else {
+    printf("Bad Wager! Better Luck Next Time.");
+  }
+} else {
+    printf("Something went wrong with the random number. :'(");
+}
+        
+         raceCounter = raceCounter + 1;
+         gregWallet  = gregWallet + prize; }
+         
+         else
+         {printf("Insufficient funds. Go home brokie!!");}
+         
+         
+         printf("\n");
+         printf("\n");
+         break;
+         
+         
+
+         
+         
+         
+      case 'b' :
+         printf("Time to do some banking.\n" );
+         printf("\n");
+         printf("\n");
+         printf("Wallet Balance: %.2f", gregWallet);
+         printf("\n");
+         printf("Account Balance: %.2f", gregAccount);
+         printf("\n");
+         printf("\n");
+         
+         
+        
+        
+         int main() {
+    int choice;
+
+    printf("[d]EPOSIT or [w]ITHDRAW?\n\n");
+    scanf("%c", &bankChoice);
+
+    switch(bankChoice) {
+        case 'd':
+            printf("How much would you like to deposit?\n");
+            scanf("%f", bankAmount);
+            break;
+            
+        case 'w':
+            printf("How much would you like to withdraw?\n");
+            scanf("%f", bankAmount);
+            break;
+        default:
+            printf("Invalid choice\n");
+            break;
+    }
+
+}
+         
+         break;
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      case 'r' :
+      
+      
+         printf("Lets see how you did.\n" );
+         printf("\n");
+         printf("Races run: %d ", raceCounter);
+         printf("\n");
+         
+             for (int i = 0; i < raceCounter; i++) {
+         printf("Race #%d ", i + 1);
+         
+         printf("Winner: %s ", Dogs[winners[i]].dogName);
+        printf("\n");
+             }
+         printf("\n");
+         printf("\n");
+         break;
+         
+         
+         
+         
+         
+         
+         
+         
+      case 'l' :
+         printf("Goodbye, hope you had fun!\n" );
+         endVal = 0;
+         printf("\n");
+         printf("\n");
+         break;
+   
+      default :
+         printf("Invalid input\n" );
+   }
+       
+    }
+
+    else
+    { printf("x was not pressed. Game failed to load.");}
+ }
+    
+    return 0;}
